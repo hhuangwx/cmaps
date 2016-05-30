@@ -2,7 +2,7 @@ from setuptools import setup
 VERSION = '0.1.0'
 
 
-def write_version_py(version=VERSION, filename='easycmaps/_version.py'):
+def write_version_py(version=VERSION, filename='cmaps/_version.py'):
     cnt = """# THIS FILE IS GENERATED FROM SETUP.PY
 version = '%(version)s'
 """
@@ -14,12 +14,12 @@ version = '%(version)s'
 
 write_version_py()
 setup(
-    name='easycmaps',
+    name='cmaps',
     author='Hao Huang',
     version=VERSION,
     author_email='hhuangmeso@gmail.com',
-    packages=['easycmaps', ],
-    package_data={'easycmaps': ['colormaps/*'], },
+    packages=['cmaps', ],
+    package_data={'cmaps': ['colormaps/*'], },
     url='',
     license='LICENSE.txt',
     description='',
