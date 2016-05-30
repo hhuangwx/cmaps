@@ -1,0 +1,300 @@
+#
+#       $Id: yMakefile,v 1.10 2009-11-08 19:55:46 haley Exp $
+#
+ORIG_FILES	= \
+		3gauss.ncmap  \
+		3gauss.rgb  \
+		3saw.ncmap \
+		3saw.rgb \
+		BkBlAqGrYeOrReViWh200.gp \
+		BkBlAqGrYeOrReViWh200.rgb \
+		BlAqGrYeOrRe.gp \
+		BlAqGrYeOrRe.rgb \
+		BlAqGrYeOrReVi200.gp \
+		BlAqGrYeOrReVi200.rgb \
+		BlGrYeOrReVi200.gp \
+		BlGrYeOrReVi200.rgb \
+		BlAqGrWh2YeOrReVi22.rgb \
+		BlRe.rgb \
+		BlWhRe.gp \
+		BlWhRe.rgb \
+		BlueRed.rgb \
+		BlueRedGray.rgb \
+		GreenYellow.rgb \
+		ViBlGrWhYeOrRe.gp \
+		ViBlGrWhYeOrRe.rgb \
+		WhBlGrYeRe.gp \
+		WhBlGrYeRe.rgb \
+		WhBlReWh.gp \
+		WhBlReWh.rgb \
+		WhViBlGrYeOrRe.gp \
+		WhViBlGrYeOrRe.rgb \
+		WhViBlGrYeOrReWh.gp \
+		WhViBlGrYeOrReWh.rgb \
+		amwg.rgb \
+		amwg256.rgb \
+		cosam.rgb \
+		cosam12.rgb \
+		default.rgb \
+		detail.ncmap \
+		detail.rgb \
+		extrema.ncmap \
+		extrema.rgb \
+		helix.ncmap \
+		helix.rgb \
+		helix1.ncmap \
+		helix1.rgb \
+		gui_default.rgb \
+		hlu_default.rgb \
+		hotres.ncmap \
+		hotres.rgb \
+		nrl_sirkes.rgb \
+		nrl_sirkes_nowhite.rgb \
+		posneg_1.rgb \
+		posneg_2.rgb \
+		prcp_1.rgb \
+		prcp_2.rgb \
+		prcp_3.rgb \
+		radar.rgb \
+		radar_1.rgb \
+		rainbow.gp \
+		rainbow.rgb \
+		rainbow+gray.gp \
+		rainbow+gray.rgb \
+		rainbow+white.gp \
+		rainbow+white.rgb \
+		rainbow+white+gray.gp \
+		rainbow+white+gray.rgb \
+		so4_21.gp \
+		so4_21.rgb \
+		so4_23.gp \
+		so4_23.rgb \
+		tbrAvg1.rgb \
+		tbrStd1.gp \
+		tbrStd1.rgb \
+		tbrVar1.gp \
+		tbrVar1.rgb \
+		tbr_240-300.gp \
+		tbr_240-300.rgb \
+		tbr_stdev_0-30.gp \
+		tbr_stdev_0-30.rgb \
+		tbr_var_0-500.gp \
+		tbr_var_0-500.rgb \
+		testcmap.rgb \
+		thelix.rgb \
+                wgne15.rgb \
+		wh-bl-gr-ye-re.gp \
+		wh-bl-gr-ye-re.rgb \
+		wxpEnIR.rgb \
+		BlueDarkOrange18.rgb \
+		BlueDarkRed18.rgb \
+		BlueGreen14.rgb \
+		BrownBlue12.rgb \
+		Cat12.rgb \
+		GreenMagenta16.rgb \
+		StepSeq25.rgb \
+		amwg_blueyellowred.rgb \
+		hotcold_18lev.rgb \
+		hotcolr_19lev.rgb \
+		mch_default.rgb \
+		perc2_9lev.rgb \
+		percent_11lev.rgb \
+		precip2_15lev.rgb \
+		precip2_17lev.rgb \
+		precip3_16lev.rgb \
+		precip4_11lev.rgb \
+		precip4_diff_19lev.rgb \
+		precip_11lev.rgb \
+		precip_diff_12lev.rgb \
+		precip_diff_1lev.rgb \
+		rh_19lev.rgb \
+		spread_15lev.rgb \
+		sunshine_9lev.rgb \
+		sunshine_diff_12lev.rgb \
+		t2m_29lev.rgb \
+		temp_19lev.rgb \
+		temp_diff_18lev.rgb \
+		temp_diff_1lev.rgb \
+		topo_15lev.rgb \
+		wind_17lev.rgb \
+		BlueWhiteOrangeRed.rgb \
+		BlueYellowRed.rgb \
+		GrayWhiteGray.rgb \
+		WhiteBlueGreenYellowRed.rgb \
+		OceanLakeLandSnow.rgb \
+		WhiteBlue.rgb \
+		WhiteYellowOrangeRed.rgb \
+		WhiteGreen.rgb \
+		cmp_b2r.rgb \
+		cmp_flux.rgb \
+		cmp_haxby.rgb \
+		matlab_hot.rgb \
+		matlab_hsv.rgb \
+		matlab_jet.rgb \
+		matlab_lines.rgb \
+		seaice_1.rgb \
+		seaice_2.rgb \
+		GHRSST_anomaly.rgb \
+		cb_9step.rgb \
+		cb_rainbow.rgb \
+		cb_rainbow_inv.rgb \
+		cyclic.rgb \
+		example.rgb \
+		gscyclic.rgb \
+		gsdtol.rgb \
+		gsltod.rgb \
+		ncl_default.rgb \
+		psgcap.rgb \
+		temp1.rgb \
+		uniform.rgb
+
+GFDL_FILES = \
+                nice_gfdl.rgb
+
+
+GMT_FILES = \
+		GMT_cool.rgb \
+		GMT_copper.rgb \
+		GMT_drywet.rgb \
+		GMT_gebco.rgb \
+		GMT_globe.rgb \
+		GMT_gray.rgb \
+		GMT_haxby.rgb \
+		GMT_hot.rgb \
+		GMT_jet.rgb \
+		GMT_nighttime.rgb \
+		GMT_no_green.rgb \
+		GMT_ocean.rgb \
+		GMT_paired.rgb \
+		GMT_panoply.rgb \
+		GMT_polar.rgb \
+		GMT_red2green.rgb \
+		GMT_relief.rgb \
+		GMT_relief_oceanonly.rgb \
+		GMT_seis.rgb \
+		GMT_split.rgb \
+		GMT_topo.rgb \
+		GMT_wysiwyg.rgb \
+		GMT_wysiwygcont.rgb
+
+GRADS_FILES = \
+		grads_default.rgb \
+		grads_rainbow.rgb
+
+MPL_FILES = \
+		MPL_Accent.rgb \
+		MPL_Blues.rgb \
+		MPL_BrBG.rgb \
+		MPL_BuGn.rgb \
+		MPL_BuPu.rgb \
+		MPL_Dark2.rgb \
+		MPL_GnBu.rgb \
+		MPL_Greens.rgb \
+		MPL_OrRd.rgb \
+		MPL_Oranges.rgb \
+		MPL_PRGn.rgb \
+		MPL_Paired.rgb \
+		MPL_Pastel1.rgb \
+		MPL_Pastel2.rgb \
+		MPL_PiYG.rgb \
+		MPL_PuBuGn.rgb \
+		MPL_PuBu.rgb \
+		MPL_PuOr.rgb \
+		MPL_PuRd.rgb \
+		MPL_Purples.rgb \
+		MPL_RdBu.rgb \
+		MPL_RdGy.rgb \
+		MPL_RdPu.rgb \
+		MPL_RdYlBu.rgb \
+		MPL_RdYlGn.rgb \
+		MPL_Reds.rgb \
+		MPL_Set1.rgb \
+		MPL_Set2.rgb \
+		MPL_Set3.rgb \
+		MPL_Spectral.rgb \
+		MPL_StepSeq.rgb \
+		MPL_YlGnBu.rgb \
+		MPL_YlGn.rgb \
+		MPL_YlOrBr.rgb \
+		MPL_YlOrRd.rgb \
+		MPL_afmhot.rgb \
+		MPL_autumn.rgb \
+		MPL_Greys.rgb \
+		MPL_bone.rgb \
+		MPL_brg.rgb \
+		MPL_bwr.rgb \
+		MPL_cool.rgb \
+		MPL_coolwarm.rgb \
+		MPL_copper.rgb \
+		MPL_cubehelix.rgb \
+		MPL_flag.rgb \
+		MPL_gist_earth.rgb \
+		MPL_gist_gray.rgb \
+		MPL_gist_heat.rgb \
+		MPL_gist_ncar.rgb \
+		MPL_gist_rainbow.rgb \
+		MPL_gist_stern.rgb \
+		MPL_gist_yarg.rgb \
+		MPL_gnuplot2.rgb \
+		MPL_gnuplot.rgb \
+		MPL_hot.rgb \
+		MPL_hsv.rgb \
+		MPL_jet.rgb \
+		MPL_ocean.rgb \
+		MPL_pink.rgb \
+		MPL_prism.rgb \
+		MPL_rainbow.rgb \
+		MPL_s3pcpn_l.rgb \
+		MPL_s3pcpn.rgb \
+		MPL_seismic.rgb \
+		MPL_spring.rgb \
+		MPL_sstanom.rgb \
+		MPL_summer.rgb \
+		MPL_terrain.rgb \
+		MPL_winter.rgb
+
+NCVIEW_FILES = \
+		ncview_default.ncmap \
+		ncview_default.rgb \
+		NCV_banded.rgb \
+		NCV_blu_red.rgb \
+		NCV_blue_red.rgb \
+		NCV_bright.rgb \
+		NCV_gebco.rgb \
+		NCV_jaisnd.rgb \
+		NCV_jet.rgb \
+		NCV_manga.rgb \
+		NCV_rainbow2.rgb \
+		NCV_roullet.rgb
+
+
+SVG_FILES = \
+		SVG_Gallet13.rgb \
+		SVG_Lindaa06.rgb \
+		SVG_Lindaa07.rgb \
+		SVG_bhw3_22.rgb \
+		SVG_es_landscape_79.rgb \
+		SVG_feb_sunrise.rgb \
+		SVG_foggy_sunrise.rgb \
+		SVG_fs2006.rgb
+
+COLORBREWER_FILES = \
+		CBR_coldhot.rgb \
+		CBR_drywet.rgb \
+		CBR_set3.rgb \
+		CBR_wet.rgb
+RANDOM_FILES = \
+		lithology.rgb \
+		circular_0.rgb \
+		circular_1.rgb \
+		circular_2.rgb
+
+FILES = $(ORIG_FILES) $(GFDL_FILES) $(GMT_FILES) $(GRADS_FILES) $(MPL_FILES) $(NCVIEW_FILES) $(SVG_FILES) $(COLORBREWER_FILES) $(RANDOM_FILES)
+
+CMPATH	= $(LIBNCARGPATH)/colormaps
+INSTALL_CM = $(INSTALL_DB)
+
+InstallTarget($(FILES),$(INSTALL_CM),$(CMPATH))
+#ifdef BuildPyNGL
+InstallTarget($(FILES),$(INSTALL_CM),$(PYNGLNCARGPATH)/colormaps)
+#endif
