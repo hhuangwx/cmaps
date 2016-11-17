@@ -22,7 +22,7 @@ def _listfname():
 
 
 def _coltbl(cmap_file):
-    pattern = re.compile(r'(\d\.?\d*)\s+(\d\.?\d*)\s+(\d\.?\d*)\r*\n')
+    pattern = re.compile(r'(\d\.?\d*)\s+(\d\.?\d*)\s+(\d\.?\d*)')
     with open(cmap_file) as cmap:
         cmap_buff = cmap.read()
     if re.search(r'\s*\d\.\d*', cmap_buff):
@@ -31,7 +31,7 @@ def _coltbl(cmap_file):
         return np.asarray(pattern.findall(cmap_buff), 'u1')/255.
 
 for cmap_file in _listfname():
-    cname = os.path.basename(cmap_file).strip('.rgb')
+    cname = os.path.basename(cmap_file).split('.rgb')[0]
     cmap = colors.ListedColormap(_coltbl(cmap_file), name=cname)
     matplotlib.cm.register_cmap(name=cname, cmap=cmap)
     cmap_d[cname] = cmap
