@@ -17,7 +17,7 @@ def _listfname():
     if USER_CMAPFILE_DIR is not None:
         user_cmapsflist = sorted(
             glob.glob(os.path.join(USER_CMAPFILE_DIR, '*.rgb')))
-        cmapsflist = cmapsflist+user_cmapsflist
+        cmapsflist = cmapsflist + user_cmapsflist
     return cmapsflist
 
 
@@ -28,7 +28,7 @@ def _coltbl(cmap_file):
     if re.search(r'\s*\d\.\d*', cmap_buff):
         return np.asarray(pattern.findall(cmap_buff), 'f4')
     else:
-        return np.asarray(pattern.findall(cmap_buff), 'u1')/255.
+        return np.asarray(pattern.findall(cmap_buff), 'u1') / 255.
 
 for cmap_file in _listfname():
     cname = os.path.basename(cmap_file).split('.rgb')[0]
@@ -37,3 +37,8 @@ for cmap_file in _listfname():
     cmap_d[cname] = cmap
 
 locals().update(cmap_d)
+
+
+def listcm():
+    for ii in (cmap_d.keys()):
+        print(ii)
