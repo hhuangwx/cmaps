@@ -4,6 +4,7 @@ import glob
 import re
 from matplotlib import colors
 import matplotlib.cm
+from ._version import __version__
 
 cmap_d = dict()
 
@@ -30,8 +31,12 @@ def _coltbl(cmap_file):
     else:
         return np.asarray(pattern.findall(cmap_buff), 'u1') / 255.
 
+
 for cmap_file in _listfname():
     cname = os.path.basename(cmap_file).split('.rgb')[0]
+    #start with the number will result illegal attribute
+    if cname[0].isnumeric():
+        cname = 'N' + cname
     cmap = colors.ListedColormap(_coltbl(cmap_file), name=cname)
     matplotlib.cm.register_cmap(name=cname, cmap=cmap)
     cmap_d[cname] = cmap

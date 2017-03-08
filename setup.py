@@ -4,13 +4,14 @@ VERSION = '0.1.0'
 
 def write_version_py(version=VERSION, filename='cmaps/_version.py'):
     cnt = """# THIS FILE IS GENERATED FROM SETUP.PY
-version = '%(version)s'
+__version__ = '%(version)s'
 """
     a = open(filename, 'w')
     try:
         a.write(cnt % {'version': version})
     finally:
         a.close()
+
 
 write_version_py()
 setup(
