@@ -25,4 +25,5 @@ setup(
     license='LICENSE.txt',
     description='',
     long_description='',
+    install_requires=['matplotlib'],
 )

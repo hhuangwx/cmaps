@@ -34,8 +34,8 @@ def _coltbl(cmap_file):
 
 for cmap_file in _listfname():
     cname = os.path.basename(cmap_file).split('.rgb')[0]
-    #start with the number will result illegal attribute
-    if cname[0].isnumeric():
+    # start with the number will result illegal attribute
+    if cname[0].isdigit():
         cname = 'N' + cname
     cmap = colors.ListedColormap(_coltbl(cmap_file), name=cname)
     matplotlib.cm.register_cmap(name=cname, cmap=cmap)
