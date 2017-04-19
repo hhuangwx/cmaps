@@ -8,7 +8,7 @@ Users can define a environmental variable CMAP_DIR pointing to the folder contai
 
 Installation::
 
-    git clone https://github.com/hhuangmeso/cmaps.git
+    git clone https://github.com/hhuangwx/cmaps.git
     cd cmaps
     python setup.py install
 
