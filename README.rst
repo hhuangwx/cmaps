@@ -19,7 +19,9 @@ Usage::
     import cmaps
     import numpy as np
 
-    a=np.random.rand(100,100)
-    plt.pcolormesh(a,cmap=cmaps.BlueDarkOrange18)
+    x = y = np.arange(-3.0, 3.01, 0.05)
+    X, Y = np.meshgrid(x, y)
+    Z1 = plt.mlab.bivariate_normal(X, Y, 1.0, 1.0, 0.0, 0.0)
+    plt.pcolormesh(X,Y,Z1,cmap=cmaps.WhiteBlueGreenYellowRed)
     plt.colorbar()
     plt.show()
