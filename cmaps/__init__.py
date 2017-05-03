@@ -37,6 +37,8 @@ for cmap_file in _listfname():
     # start with the number will result illegal attribute
     if cname[0].isdigit():
         cname = 'N' + cname
+    if '-' in cname:
+        cname = cname.replace('-', '_')
     cmap = colors.ListedColormap(_coltbl(cmap_file), name=cname)
     matplotlib.cm.register_cmap(name=cname, cmap=cmap)
     cmap_d[cname] = cmap
