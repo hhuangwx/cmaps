@@ -5,6 +5,7 @@ Make it easier to use user defined colormaps in matplotlib.
 
 Users can define a environmental variable CMAP_DIR pointing to the folder containing the self-defined rgb files.
 
+.. image:: examples/colormaps.png
 
 Installation::
 
