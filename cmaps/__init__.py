@@ -49,5 +49,7 @@ locals().update(cmap_d)
 def listcmname():
     for ii in (cmap_d.keys()):
         print(ii)
+
+
 def cmap_dict():
     return cmap_d
