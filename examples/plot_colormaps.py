@@ -16,5 +16,4 @@ if __name__ == '__main__':
         plt.imshow(a, aspect='auto', cmap=cmap_d[k], origin='lower')
         plt.title(k, rotation=90, fontsize=10)
         plt.title(k, fontsize=10)
-    # plt.tight_layout()
     plt.savefig('colormaps.png', dpi=300)
