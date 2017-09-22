@@ -40,10 +40,15 @@ for cmap_file in _listfname():
         cname = 'N' + cname
     if '-' in cname:
         cname = cname.replace('-', '_')
+
     cmap = colors.ListedColormap(_coltbl(cmap_file), name=cname)
     matplotlib.cm.register_cmap(name=cname, cmap=cmap)
     cmap_d[cname] = cmap
 
+    cname = cname + '_r'
+    cmap = colors.ListedColormap(_coltbl(cmap_file)[::-1], name=cname)
+    matplotlib.cm.register_cmap(name=cname, cmap=cmap)
+    cmap_d[cname] = cmap
 locals().update(cmap_d)
 
 
