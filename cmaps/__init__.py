@@ -23,9 +23,10 @@ def _listfname():
 
 
 def _coltbl(cmap_file):
-    pattern = re.compile(r'(\d\.?\d*)\s+(\d\.?\d*)\s+(\d\.?\d*)')
+    pattern = re.compile(r'(\d\.?\d*)\s+(\d\.?\d*)\s+(\d\.?\d*).*')
     with open(cmap_file) as cmap:
         cmap_buff = cmap.read()
+    cmap_buff = re.compile('ncolors.*\n').sub('', cmap_buff)
     if re.search(r'\s*\d\.\d*', cmap_buff):
         return np.asarray(pattern.findall(cmap_buff), 'f4')
     else:
