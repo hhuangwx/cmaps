@@ -6,6 +6,7 @@ import glob
 import re
 from matplotlib import colors
 import matplotlib.cm
+from ._version import __version__
 
 CMAPSFILE_DIR = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), 'colormaps')
@@ -17,11 +18,10 @@ class Cmaps(object):
 
     def __init__(self, ):
         self._cmap_d = dict()
-
-        #
         self._parse_cmaps()
         for cname in self._cmap_d.keys():
             setattr(self, cname, self._cmap_d[cname])
+        self.__version__ = __version__
 
     def _listfname(self):
         cmapsflist = sorted(glob.glob(os.path.join(CMAPSFILE_DIR, '*.rgb')))
@@ -42,7 +42,6 @@ class Cmaps(object):
             return np.asarray(pattern.findall(cmap_buff), 'u1') / 255.
 
     def _parse_cmaps(self):
-
         for cmap_file in self._listfname():
             cname = os.path.basename(cmap_file).split('.rgb')[0]
             # start with the number will result illegal attribute
