@@ -5,7 +5,7 @@ import re
 from matplotlib import colors
 import matplotlib.cm
 from ._version import __version__
-
+# TODO rewrite using the module property instead of this kind of ugly locals
 cmap_d = dict()
 
 CMAPSFILE_DIR = os.path.join(
