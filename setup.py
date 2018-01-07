@@ -1,4 +1,5 @@
 from setuptools import setup
+
 VERSION = '0.3.0'
 
 
@@ -20,7 +21,8 @@ setup(
     version=VERSION,
     author_email='hhuangmeso@gmail.com',
     packages=['cmaps', ],
-    package_data={'cmaps': ['colormaps/*'], },
+    package_data={'cmaps': ['colormaps/ncar_ncl/*',
+                            'colormaps/self_defined/*'], },
     url='',
     license='LICENSE.txt',
     description='',

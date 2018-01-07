@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import numpy as np
 import os
-import glob
 import re
+from glob import glob
+
 import matplotlib.cm
+import numpy as np
+
 from ._version import __version__
 from .cmapy import Cmapy
+
 CMAPSFILE_DIR = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), 'colormaps')
 USER_CMAPFILE_DIR = os.environ.get('CMAP_DIR')
@@ -23,12 +26,12 @@ class Cmaps(object):
         self.__version__ = __version__
 
     def _listfname(self):
-        cmapsflist = sorted(glob.glob(os.path.join(CMAPSFILE_DIR, '*.rgb')))
+        cmapsflist = glob(os.path.join(CMAPSFILE_DIR, 'ncar_ncl/*.rgb')) + \
+            glob(os.path.join(CMAPSFILE_DIR, 'self_defined/*.rgb'))
         if USER_CMAPFILE_DIR is not None:
-            user_cmapsflist = sorted(
-                glob.glob(os.path.join(USER_CMAPFILE_DIR, '*.rgb')))
-            cmapsflist = cmapsflist + user_cmapsflist
-        return cmapsflist
+            cmapsflist = cmapsflist + \
+                glob(os.path.join(USER_CMAPFILE_DIR, '*.rgb'))
+        return sorted(cmapsflist)
 
     def _coltbl(self, cmap_file):
         pattern = re.compile(r'(\d\.?\d*)\s+(\d\.?\d*)\s+(\d\.?\d*).*')
@@ -64,4 +67,3 @@ class Cmaps(object):
 
     def cmap_dict(self):
         return self._cmap_d
-
