@@ -4,6 +4,7 @@ import inspect
 
 import matplotlib.pyplot as plt
 import matplotlib
+matplotlib.rc('text', usetex=False)
 
 
 def list_cmaps():
@@ -13,7 +14,6 @@ def list_cmaps():
     return colors
 
 
-matplotlib.rc('text', usetex=False)
 if __name__ == '__main__':
     color = list_cmaps()
 

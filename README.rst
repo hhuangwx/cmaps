@@ -48,6 +48,7 @@ List the colormaps using the code in the examples::
 
     import matplotlib.pyplot as plt
     import matplotlib
+    matplotlib.rc('text', usetex=False)
 
 
     def list_cmaps():
@@ -57,7 +58,6 @@ List the colormaps using the code in the examples::
         return colors
 
 
-    matplotlib.rc('text', usetex=False)
     if __name__ == '__main__':
         color = list_cmaps()
 
