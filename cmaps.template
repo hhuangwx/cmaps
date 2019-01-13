@@ -8,12 +8,11 @@ import matplotlib.cm
 import numpy as np
 
 from ._version import __version__
-from .cmapy import Cmapy
+from .colormap import Colormap
 
 CMAPSFILE_DIR = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), 'colormaps')
 USER_CMAPFILE_DIR = os.environ.get('CMAP_DIR')
-
 
 class Cmaps(object):
     """colormaps"""
@@ -46,11 +45,11 @@ class Cmaps(object):
                 if '+' in cname:
                     cname = cname.replace('+', '_')
 
-                cmap = Cmapy(self._coltbl(cmap_file), name=cname)
+                cmap = Colormap(self._coltbl(cmap_file), name=cname)
                 matplotlib.cm.register_cmap(name=cname, cmap=cmap)
                 setattr(self, cname, cmap)
 
                 cname = cname + '_r'
-                cmap = Cmapy(self._coltbl(cmap_file)[::-1], name=cname)
+                cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)
                 matplotlib.cm.register_cmap(name=cname, cmap=cmap)
                 setattr(self, cname, cmap)

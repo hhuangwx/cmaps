@@ -49,7 +49,7 @@ def write_cmaps(template_file='./cmaps.template'):
             c += '        cname = "{}"\n'.format(cname)
             c += '        cmap_file = {} "{}")\n'.format(
                 l[t]['p'], os.path.basename(cmap_file))
-            c += '        cmap = Cmapy(self._coltbl(cmap_file), name=cname)\n'
+            c += '        cmap = Colormap(self._coltbl(cmap_file), name=cname)\n'
             c += '        matplotlib.cm.register_cmap(name=cname, cmap=cmap)\n'
             c += '        return cmap\n\n'
 
@@ -58,7 +58,7 @@ def write_cmaps(template_file='./cmaps.template'):
             c += '        cname = "{}"\n'.format(cname + '_r')
             c += '        cmap_file = {} "{}")\n'.format(
                 l[t]['p'], os.path.basename(cmap_file))
-            c += '        cmap = Cmapy(self._coltbl(cmap_file)[::-1], name=cname)\n'
+            c += '        cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)\n'
             c += '        matplotlib.cm.register_cmap(name=cname, cmap=cmap)\n'
             c += '        return cmap\n\n'
 

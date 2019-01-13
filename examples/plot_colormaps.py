@@ -5,11 +5,17 @@ import inspect
 import matplotlib.pyplot as plt
 import matplotlib
 
+
+def list_cmaps():
+    attributes = inspect.getmembers(cmaps, lambda _: not (inspect.isroutine(_)))
+    colors = [_[0] for _ in attributes if
+              not (_[0].startswith('__') and _[0].endswith('__'))]
+    return colors
+
+
 matplotlib.rc('text', usetex=False)
 if __name__ == '__main__':
-    attributes = inspect.getmembers(cmaps, lambda _: not (inspect.isroutine(_)))
-    color = [_[0] for _ in attributes if
-             not (_[0].startswith('__') and _[0].endswith('__'))]
+    color = list_cmaps()
 
     a = np.outer(np.arange(0, 1, 0.001), np.ones(10))
     plt.figure(figsize=(20, 20))

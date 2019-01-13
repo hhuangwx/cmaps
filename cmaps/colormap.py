@@ -1,19 +1,20 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import numpy as np
 from matplotlib import colors
 
-
-class Cmapy(colors.ListedColormap):
-    def __init__(self, colors, name='from_list', N=None):
+class Colormap(colors.ListedColormap):
+    def __init__(self, c, name='from_list', n=None):
         '''Initialization'''
-        self._colors = colors
+        self._colors = c
         self._name = name
-        self._N = N
+        self._N = n
 
         # call parent __init__
-        super(Cmapy, self).__init__(self._colors, name=self._name, N=self._N)
+        super(Colormap, self).__init__(self._colors, name=self._name, N=self._N)
 
     def __getitem__(self, item):
-        return Cmapy(self._colors[item], name='sliced_' + self._name)
+        return Colormap(self._colors[item], name='sliced_' + self._name)
 
     def show(self):
         import matplotlib.pyplot as plt
