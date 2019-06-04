@@ -10,11 +10,11 @@ Make it easier to use user defined colormaps in matplotlib. Default colormaps ar
 
 Users can define a environmental variable CMAP_DIR pointing to the folder containing the self-defined rgb files.
 
-Installation::
+Installation ::
 
     pip install https://github.com/hhuangwx/cmaps/archive/master.zip
 
-or
+or :
     
     git clone https://github.com/hhuangwx/cmaps.git
     cd cmaps
