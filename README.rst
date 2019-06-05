@@ -5,8 +5,6 @@ Make it easier to use user defined colormaps in matplotlib. Default colormaps ar
 
 .. _NCL: http://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml
 
-.. image:: examples/colormaps.png
-
 
 Users can define a environmental variable CMAP_DIR pointing to the folder containing the self-defined rgb files.
 
@@ -20,6 +18,8 @@ or::
     cd cmaps
     python setup.py install
 
+
+.. image:: examples/colormaps.png
 
 Usage::
 
