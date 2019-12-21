@@ -3,7 +3,7 @@ from glob import glob
 from setuptools import setup
 import os
 
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 CMAPSFILE_DIR = os.path.join('./cmaps/colormaps')
 
 
@@ -75,7 +75,8 @@ setup(
     version=VERSION,
     author_email='hhuangwx@gmail.com',
     packages=['cmaps', ],
-    package_data={'cmaps': ['colormaps/ncar_ncl/*',
+    package_data={'cmaps': ['../cmaps.template',
+                            'colormaps/ncar_ncl/*',
                             'colormaps/self_defined/*'], },
     url='',
     license='LICENSE.txt',
