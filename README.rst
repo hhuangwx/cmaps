@@ -19,7 +19,7 @@ Installation::
 
 or::
 
-    conda install -c hhuangwx cmaps
+    conda install -c conda-forge cmaps
 
 or::
     
