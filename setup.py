@@ -3,7 +3,7 @@ from glob import glob
 from setuptools import setup
 import os
 
-VERSION = '1.0.2'
+VERSION = '1.0.3'
 CMAPSFILE_DIR = os.path.join('./cmaps/colormaps')
 
 
