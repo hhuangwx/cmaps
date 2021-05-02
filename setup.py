@@ -3,7 +3,7 @@ from glob import glob
 from setuptools import setup
 import os
 
-VERSION = '1.0.3'
+VERSION = '1.0.4'
 CMAPSFILE_DIR = os.path.join('./cmaps/colormaps')
 
 
@@ -47,6 +47,8 @@ def write_cmaps(template_file='./cmaps.template'):
             c += '    @property\n'
             c += '    def {}(self):\n'.format(cname)
             c += '        cname = "{}"\n'.format(cname)
+            c += '        if cname in matplotlib.cm._cmap_registry:\n'
+            c += '            return matplotlib.cm.get_cmap(cname)\n'
             c += '        cmap_file = {} "{}")\n'.format(
                 l[t]['p'], os.path.basename(cmap_file))
             c += '        cmap = Colormap(self._coltbl(cmap_file), name=cname)\n'
@@ -56,6 +58,8 @@ def write_cmaps(template_file='./cmaps.template'):
             c += '    @property\n'
             c += '    def {}(self):\n'.format(cname + '_r')
             c += '        cname = "{}"\n'.format(cname + '_r')
+            c += '        if cname in matplotlib.cm._cmap_registry:\n'
+            c += '            return matplotlib.cm.get_cmap(cname)\n'
             c += '        cmap_file = {} "{}")\n'.format(
                 l[t]['p'], os.path.basename(cmap_file))
             c += '        cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)\n'
