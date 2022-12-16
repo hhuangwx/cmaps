@@ -69,7 +69,10 @@ def write_cmaps(template_file='./cmaps.template'):
             c += '        cmap_file = {} "{}")\n'.format(
                 l[t]['p'], os.path.basename(cmap_file))
             c += '        cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)\n'
-            c += '        matplotlib.cm.register_cmap(name=cname, cmap=cmap)\n'
+            c += '        try:\n'
+            c += '            matplotlib.cm.register_cmap(name=cname, cmap=cmap)\n'
+            c += '        except:\n'
+            c += '            pass\n'
             c += '        return cmap\n\n'
 
     cmapspy = './cmaps/cmaps.py'
