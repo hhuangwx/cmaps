@@ -1,6 +1,6 @@
 cmaps
 =====
-
+修复了matplotlib重复引用问题
 Make it easier to use user defined colormaps in matplotlib. Default colormaps are from NCL_ website.
 
 .. _NCL: http://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml
