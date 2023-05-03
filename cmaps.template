@@ -46,20 +46,20 @@ class Cmaps(object):
                     cname = cname.replace('+', '_')
 
                 try:
-                    if cname in matplotlib.cm._cmap_registry:
-                        return matplotlib.cm.get_cmap(cname)
+                    if cname in matplotlib.colormaps:
+                        return matplotlib.colormaps.get_cmap(cname)
                 except:
                     pass
                 cmap = Colormap(self._coltbl(cmap_file), name=cname)
-                matplotlib.cm.register_cmap(name=cname, cmap=cmap)
+                matplotlib.colormaps.register(name=cname, cmap=cmap)
                 setattr(self, cname, cmap)
 
                 try:
-                    if cname in matplotlib.cm._cmap_registry:
-                        return matplotlib.cm.get_cmap(cname)
+                    if cname in matplotlib.colormaps:
+                        return matplotlib.colormaps.get_cmap(cname)
                 except:
                     pass
                 cname = cname + '_r'
                 cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)
-                matplotlib.cm.register_cmap(name=cname, cmap=cmap)
+                matplotlib.colormaps.register(name=cname, cmap=cmap)
                 setattr(self, cname, cmap)
