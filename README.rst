@@ -14,16 +14,8 @@ Special thanks to Dr. Shen_: for suggestions and the help of uploading this pack
 .. _Shen: https://github.com/wqshen
 
 Installation::
-
-    pip install cmaps
-
-or::
-
-    conda install -c conda-forge cmaps
-
-or::
     
-    git clone https://github.com/hhuangwx/cmaps.git
+    git clone https://github.com/jesieleo/cmaps.git
     cd cmaps
     python setup.py install
 
