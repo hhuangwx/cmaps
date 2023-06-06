@@ -3,7 +3,9 @@
 import os
 import re
 from glob import glob
+from packaging import version
 
+import matplotlib
 import matplotlib.cm
 import numpy as np
 
@@ -13,6 +15,18 @@ from .colormap import Colormap
 CMAPSFILE_DIR = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), 'colormaps')
 USER_CMAPFILE_DIR = os.environ.get('CMAP_DIR')
+
+
+if version.parse(matplotlib.__version__) < version.parse('3.2.0'):
+    raise Exception('cmaps of version {} only supports matplotlib greater than 3.2'.format(__version__))
+
+if version.parse(matplotlib.__version__) >= version.parse('3.7'):
+    get_cmap = matplotlib.colormaps.get_cmap
+    register_cmap = matplotlib.colormaps.register
+else:
+    get_cmap = matplotlib.cm.get_cmap
+    register_cmap = matplotlib.cm.register_cmap
+    
 
 class Cmaps(object):
     """colormaps"""
@@ -45,21 +59,11 @@ class Cmaps(object):
                 if '+' in cname:
                     cname = cname.replace('+', '_')
 
-                try:
-                    if cname in matplotlib.cm._cmap_registry:
-                        return matplotlib.cm.get_cmap(cname)
-                except:
-                    pass
                 cmap = Colormap(self._coltbl(cmap_file), name=cname)
-                matplotlib.cm.register_cmap(name=cname, cmap=cmap)
+                register_cmap(name=cname, cmap=cmap)
                 setattr(self, cname, cmap)
 
-                try:
-                    if cname in matplotlib.cm._cmap_registry:
-                        return matplotlib.cm.get_cmap(cname)
-                except:
-                    pass
                 cname = cname + '_r'
                 cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)
-                matplotlib.cm.register_cmap(name=cname, cmap=cmap)
+                register_cmap(name=cname, cmap=cmap)
                 setattr(self, cname, cmap)

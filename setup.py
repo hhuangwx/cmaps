@@ -3,7 +3,7 @@ from glob import glob
 from setuptools import setup
 import os
 
-VERSION = '1.0.5'
+VERSION = '2.0.0'
 CMAPSFILE_DIR = os.path.join('./cmaps/colormaps')
 
 
@@ -48,28 +48,26 @@ def write_cmaps(template_file='./cmaps.template'):
             c += '    def {}(self):\n'.format(cname)
             c += '        cname = "{}"\n'.format(cname)
             c += '        try:\n'
-            c += '            if cname in matplotlib.cm._cmap_registry:\n'
-            c += '                return matplotlib.cm.get_cmap(cname)\n'
+            c += '            return get_cmap(cname)\n'
             c += '        except:\n'
             c += '            pass\n'
             c += '        cmap_file = {} "{}")\n'.format(
                 l[t]['p'], os.path.basename(cmap_file))
             c += '        cmap = Colormap(self._coltbl(cmap_file), name=cname)\n'
-            c += '        matplotlib.cm.register_cmap(name=cname, cmap=cmap)\n'
+            c += '        register_cmap(name=cname, cmap=cmap)\n'
             c += '        return cmap\n\n'
 
             c += '    @property\n'
             c += '    def {}(self):\n'.format(cname + '_r')
             c += '        cname = "{}"\n'.format(cname + '_r')
             c += '        try:\n'
-            c += '            if cname in matplotlib.cm._cmap_registry:\n'
-            c += '                return matplotlib.cm.get_cmap(cname)\n'
+            c += '            get_cmap(cname)\n'
             c += '        except:\n'
             c += '            pass\n'
             c += '        cmap_file = {} "{}")\n'.format(
                 l[t]['p'], os.path.basename(cmap_file))
             c += '        cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)\n'
-            c += '        matplotlib.cm.register_cmap(name=cname, cmap=cmap)\n'
+            c += '        register_cmap(name=cname, cmap=cmap)\n'
             c += '        return cmap\n\n'
 
     cmapspy = './cmaps/cmaps.py'
@@ -92,5 +90,5 @@ setup(
     license='LICENSE',
     description='',
     long_description='',
-    install_requires=['matplotlib', 'numpy'],
+    install_requires=['matplotlib', 'numpy', 'packaging'],
 )

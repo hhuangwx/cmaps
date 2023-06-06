@@ -86,9 +86,27 @@ List the colormaps using the code in the examples::
             plt.title(k, rotation=90, fontsize=10)
             plt.title(k, fontsize=10)
         plt.savefig('colormaps.png', dpi=300)
+        plt.close()
 
-Note that "Slicing" function like list or numpy array is supported for cmaps::
+New features:
+
+#. "Slicing" function like list or numpy array is supported for cmaps::
 
     cmaps.amwg256[20:-20:2]
     cmaps.amwg256[-20:20:-2]
+
+#. "add" function for the cmaps are supported now::
+
+    cmaps.amwg256+WhiteBlueGreenYellowRed
+
+#. a cmap can now be interpolated (different from the "resampled" function in the new version of matplotlib which only take the nearest one)::
+
+    cmaps.amwg256.interp(50)
+    cmaps.amwg256.interp(1000)
+
+#. a cmap can now be convert to LinearSegmentedColormap with different number of colors, with part of effect similar to interp::
+
+    cmaps.amwg256.to_seg(N=100)
+
+
 

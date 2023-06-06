@@ -29,3 +29,4 @@ if __name__ == '__main__':
         plt.title(k, rotation=90, fontsize=10)
         plt.title(k, fontsize=10)
     plt.savefig('colormaps.png', dpi=300)
+    plt.close()
