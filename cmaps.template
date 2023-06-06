@@ -55,15 +55,21 @@ class Cmaps(object):
                 if cname[0].isdigit() or cname.startswith('_'):
                     cname = 'C' + cname
                 if '-' in cname:
-                    cname = cname.replace('-', '_')
+                    cname = 'cmaps_' + cname.replace('-', '_')
                 if '+' in cname:
-                    cname = cname.replace('+', '_')
+                    cname = 'cmaps_' + cname.replace('+', '_')
 
-                cmap = Colormap(self._coltbl(cmap_file), name=cname)
-                register_cmap(name=cname, cmap=cmap)
+                try:
+                    cmap = get_cmap(cname)
+                except:
+                    cmap = Colormap(self._coltbl(cmap_file), name=cname)
+                    register_cmap(name=cname, cmap=cmap)
                 setattr(self, cname, cmap)
 
                 cname = cname + '_r'
-                cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)
-                register_cmap(name=cname, cmap=cmap)
+                try:
+                    cmap = get_cmap(cname)
+                except:
+                    cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)
+                    register_cmap(name=cname, cmap=cmap)
                 setattr(self, cname, cmap)

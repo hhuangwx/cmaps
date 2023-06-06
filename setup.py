@@ -41,34 +41,30 @@ def write_cmaps(template_file='./cmaps.template'):
             if cname[0].isdigit() or cname.startswith('_'):
                 cname = 'N' + cname
             if '-' in cname:
-                cname = cname.replace('-', '_')
+                cname =  'cmaps_' + cname.replace('-', '_')
             if '+' in cname:
-                cname = cname.replace('+', '_')
+                cname =  'cmaps_' + cname.replace('+', '_')
             c += '    @property\n'
             c += '    def {}(self):\n'.format(cname)
             c += '        cname = "{}"\n'.format(cname)
             c += '        try:\n'
             c += '            return get_cmap(cname)\n'
             c += '        except:\n'
-            c += '            pass\n'
-            c += '        cmap_file = {} "{}")\n'.format(
-                l[t]['p'], os.path.basename(cmap_file))
-            c += '        cmap = Colormap(self._coltbl(cmap_file), name=cname)\n'
-            c += '        register_cmap(name=cname, cmap=cmap)\n'
-            c += '        return cmap\n\n'
+            c += '            cmap_file = {} "{}")\n'.format(l[t]['p'], os.path.basename(cmap_file))
+            c += '            cmap = Colormap(self._coltbl(cmap_file), name=cname)\n'
+            c += '            register_cmap(name=cname, cmap=cmap)\n'
+            c += '            return cmap\n\n'
 
             c += '    @property\n'
             c += '    def {}(self):\n'.format(cname + '_r')
             c += '        cname = "{}"\n'.format(cname + '_r')
             c += '        try:\n'
-            c += '            get_cmap(cname)\n'
+            c += '            return get_cmap(cname)\n'
             c += '        except:\n'
-            c += '            pass\n'
-            c += '        cmap_file = {} "{}")\n'.format(
-                l[t]['p'], os.path.basename(cmap_file))
-            c += '        cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)\n'
-            c += '        register_cmap(name=cname, cmap=cmap)\n'
-            c += '        return cmap\n\n'
+            c += '            cmap_file = {} "{}")\n'.format(l[t]['p'], os.path.basename(cmap_file))
+            c += '            cmap = Colormap(self._coltbl(cmap_file)[::-1], name=cname)\n'
+            c += '            register_cmap(name=cname, cmap=cmap)\n'
+            c += '            return cmap\n\n'
 
     cmapspy = './cmaps/cmaps.py'
     with open(cmapspy, 'wt') as fw:
