@@ -20,7 +20,7 @@ If you find my project helpful and would like to support my work with a small co
 如果您觉得我的项目对您有所帮助，可以给我买杯奶茶！
 
 .. image:: .donation/sponsor.png
-   :height: 100px
+   :height: 250px
 
 
 Installation::
