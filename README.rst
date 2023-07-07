@@ -13,6 +13,15 @@ Special thanks to Dr. Shen_: for suggestions and the help of uploading this pack
 
 .. _Shen: https://github.com/wqshen
 
+If you find my project helpful and would like to support my work with a small contribution (with Paypal_), I would greatly appreciate it.
+
+.. _Paypal: https://paypal.me/hhuangwx?country.x=C2&locale.x=zh_XC
+
+如果您觉得我的项目对您有所帮助，可以给我买杯奶茶！
+
+.. image:: .donation/sponsor.png
+
+
 Installation::
 
     pip install cmaps
@@ -99,12 +108,12 @@ New features:
 
     cmaps.amwg256+WhiteBlueGreenYellowRed
 
-#. a cmap can now be interpolated (different from the "resampled" function in the new version of matplotlib which only take the nearest one)::
+#. a cmap can now be interpolated (different from the "resampled" function in the new version of matplotlib which only takes the nearest ones)::
 
     cmaps.amwg256.interp(50)
     cmaps.amwg256.interp(1000)
 
-#. a cmap can now be convert to LinearSegmentedColormap with different number of colors, with part of effect similar to interp::
+#. a cmap can now be convert to LinearSegmentedColormap with different numbers of colors, with part of effect similar to interpolation::
 
     cmaps.amwg256.to_seg(N=100)
 
