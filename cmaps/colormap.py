@@ -16,13 +16,16 @@ class Colormap(colors.ListedColormap):
         # call parent __init__
         super(Colormap, self).__init__(self._colors, name=self._name, N=self._N)
 
+
     def __getitem__(self, item):
         return Colormap(self._colors[item], name='sliced_' + self._name)
     
-        # adding two objects
+
     def __add__(self, o):
+        ''' Adding two objects '''
         return Colormap(np.vstack([self.colors, o.colors]), self.name+'_' +o.name)
     
+
     def interp(self, lutsize:int):
         '''
         different from resampled of the new version of matplotlib (we interp colors here)
@@ -40,6 +43,7 @@ class Colormap(colors.ListedColormap):
             N = len(self._colors)
         return colors.LinearSegmentedColormap.from_list('seg_' +self._name, self._colors, N=N)
 
+
     def show(self):
         import matplotlib.pyplot as plt
         a = np.outer(np.ones(10), np.arange(0, 1, 0.001))
@@ -52,3 +56,16 @@ class Colormap(colors.ListedColormap):
                  verticalalignment='center', horizontalalignment='center',
                  fontsize=12, transform=plt.gca().transAxes)
         plt.show()
+
+
+    def to_plotly(self):
+        cmap = list()
+        for c in self._colors:
+            r, g, b = c
+            cmap.append('rgb({:.0f},{:.0f},{:.0f})'.format(r*255, g*255, b*255))
+        return(cmap)
+
+
+    @property
+    def plotly(self):
+        return self.to_plotly()
