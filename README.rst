@@ -35,7 +35,7 @@ or::
     
     git clone https://github.com/hhuangwx/cmaps.git
     cd cmaps
-    python setup.py install
+    pip install .
 
 
 .. image:: examples/colormaps.png
