@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cmaps"
+version = "2.0.1"
+description = "Make it easier to use user defined colormaps in matplotlib."
+readme = "README.rst"
+requires-python = ">=3.8"
+authors = [{ name = "Hao Huang", email = "hhuangwx@gmail.com" }]
+license = {file = "LICENSE"}
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "packaging",
+]
+
+[tool.setuptools.package-data]
+cmaps = [
+    "colormaps/ncar_ncl/*",
+    "colormaps/self_defined/*",
+]
+
+[tool.setuptools.data-files]
+"" = ["cmaps.template", "LICENSE"]
+
