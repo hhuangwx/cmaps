@@ -1,23 +1,17 @@
-from glob import glob
+#!/usr/bin/env python
+"""
+File generation script - extracted logic from setup.py
+Used to generate _version.py and cmaps.py files
+"""
 
-from setuptools import setup
+from glob import glob
 import os
 
-VERSION = '2.0.1'
 CMAPSFILE_DIR = os.path.join('./cmaps/colormaps')
 
 
-def write_version_py(version=VERSION, filename='cmaps/_version.py'):
-    cnt = '# THIS FILE IS GENERATED FROM SETUP.PY\n' + \
-          '__version__ = "%(version)s"\n'
-    a = open(filename, 'w')
-    try:
-        a.write(cnt % {'version': version})
-    finally:
-        a.close()
-
-
 def _listfname():
+    """Get colormap file list"""
     l = {}
 
     l.update({'ncl': {
@@ -31,8 +25,16 @@ def _listfname():
 
 
 def write_cmaps(template_file='./cmaps.template'):
+    """Generate cmaps.py file"""
+    print(f"Generating cmaps.py from template: {template_file}")
+    
+    if not os.path.exists(template_file):
+        print(f"❌ Template file not found: {template_file}")
+        return
+        
     with open(template_file, 'rt') as f:
         c = f.read()
+    
     l = _listfname()
     for t in l.keys():
         for cmap_file in l[t]['l']:
@@ -41,9 +43,9 @@ def write_cmaps(template_file='./cmaps.template'):
             if cname[0].isdigit() or cname.startswith('_'):
                 cname = 'N' + cname
             if '-' in cname:
-                cname =  'cmaps_' + cname.replace('-', '_')
+                cname = 'cmaps_' + cname.replace('-', '_')
             if '+' in cname:
-                cname =  'cmaps_' + cname.replace('+', '_')
+                cname = 'cmaps_' + cname.replace('+', '_')
             c += '    @property\n'
             c += '    def {}(self):\n'.format(cname)
             c += '        cname = "{}"\n'.format(cname)
@@ -71,20 +73,19 @@ def write_cmaps(template_file='./cmaps.template'):
         fw.write(c)
 
 
-write_version_py()
-write_cmaps()
-setup(
-    name='cmaps',
-    author='Hao Huang',
-    version=VERSION,
-    author_email='hhuangwx@gmail.com',
-    packages=['cmaps', ],
-    package_data={'cmaps': ['colormaps/ncar_ncl/*',
-                            'colormaps/self_defined/*'], },
-    data_files=[('', ['cmaps.template', 'LICENSE']),],
-    url='',
-    license='LICENSE',
-    description='',
-    long_description='',
-    install_requires=['matplotlib', 'numpy', 'packaging'],
-)
+def main():
+    """Main function: generate all necessary files"""
+    print("🔧 Starting file generation...")
+    
+    # Ensure directory exists
+    os.makedirs('cmaps', exist_ok=True)
+    
+    # Generate cmaps.py file
+    write_cmaps()
+    print("✅ Cmaps file generated")
+    
+    print("🎉 File generation completed successfully!")
+
+
+if __name__ == '__main__':
+    main()

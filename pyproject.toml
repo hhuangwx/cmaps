@@ -1,0 +1,101 @@
+[build-system]
+requires = ["scikit-build-core"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "cmaps"
+dynamic = ["version"]
+description = "Make it easier to use user defined colormaps in matplotlib"
+readme = "README.rst"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Hao Huang", email = "hhuangwx@gmail.com"}
+]
+maintainers = [
+    {name = "Hao Huang", email = "hhuangwx@gmail.com"}
+]
+keywords = ["matplotlib", "colormap", "visualization", "ncl"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8", 
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "packaging",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black", 
+    "isort",
+    "mypy",
+    "build",
+]
+
+[project.urls]
+Homepage = "https://github.com/hhuangwx/cmaps"
+Documentation = "https://github.com/hhuangwx/cmaps"
+Repository = "https://github.com/hhuangwx/cmaps.git"
+"Bug Tracker" = "https://github.com/hhuangwx/cmaps/issues"
+
+# 开发工具配置
+[tool.black]
+line-length = 88
+target-version = ["py37"]
+extend-exclude = '''
+(
+  cmaps/cmaps\.py
+  | cmaps/_version\.py
+)
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+skip = ["cmaps/cmaps.py", "cmaps/_version.py"]
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+exclude = [
+    "cmaps/cmaps.py",
+    "cmaps/_version.py",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+addopts = "-v"
+
+# scikit-build-core 配置
+[tool.scikit-build]
+# 指定 CMake 版本要求
+cmake.minimum-version = "3.16"
+# 启用详细输出便于调试
+build.verbose = true
+# 设置构建目录
+build-dir = "build/{wheel_tag}"
+
+# 动态版本管理
+[tool.scikit-build.metadata.version]
+provider = "scikit_build_core.metadata.regex"
+input = "cmaps/version.py"
+
+# 确保生成的文件被包含在轮子中
+[tool.scikit-build.wheel.packages]
+"cmaps" = "cmaps"

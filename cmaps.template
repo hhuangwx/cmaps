@@ -9,7 +9,7 @@ import matplotlib
 import matplotlib.cm
 import numpy as np
 
-from ._version import __version__
+from .version import __version__
 from .colormap import Colormap
 
 CMAPSFILE_DIR = os.path.join(
